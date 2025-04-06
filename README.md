@@ -30,16 +30,7 @@ VPC, EKS, EC2 instance as EKS worker node, Any container running on EKS with a w
 6. **Set up Load Balancer**:  
    - Create an AWS ALB (Application Load Balancer) to expose the web interface of the container to the outside world.
 
-7. **Test Deployment**:  
-   - Ensure that the infrastructure is being provisioned correctly by running `terraform apply` multiple times to confirm that multiple environments can be created.
-
-8. **Document the Process**:  
-   - Write a detailed README file with all steps for setting up and deploying the infrastructure.
-
-9. **Push to GitHub**:  
-   - After completing the Terraform configuration and documentation, push everything to a public Git repository.
-
-### Example Directory Structure
+### Directory Structure I Built
 
 ```
 terraform-aws-eks-project/
