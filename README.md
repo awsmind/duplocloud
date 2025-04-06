@@ -163,8 +163,8 @@ This Terraform project provisions a full EKS environment on AWS including:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/terraform-eks-project.git
-cd terraform-eks-project
+git clone https://github.com/awsmind/duplocloud.git
+cd duplocloud
 ```
 
 ### 2. Update Terraform variables
