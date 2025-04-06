@@ -373,3 +373,11 @@ output "eks_cluster_name" {
 output "web_url" {
   value = kubernetes_service.web.status[0].load_balancer[0].ingress[0].hostname
 }
+
+
+I would note also that If you're going for unmanaged EC2 worker nodes (instead of using EKS managed node groups), then your ec2_worker/main.tf should handle:
+
+IAM Role and Instance Profile for EC2 worker
+Lookup of the correct EKS-optimized AMI
+Launching the EC2 instance in a private subnet
+Bootstrapping the node to join the EKS cluster
