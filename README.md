@@ -381,3 +381,34 @@ IAM Role and Instance Profile for EC2 worker
 Lookup of the correct EKS-optimized AMI
 Launching the EC2 instance in a private subnet
 Bootstrapping the node to join the EKS cluster
+
+you can also note, for the Duplocloud reviewer that the LBs is here:
+
+Kubernetes creates a Service of type LoadBalancer
+AWS provisions a Classic ELB or NLB (based on cluster config)
+The Load Balancer points to your NGINX pod in the EKS cluster
+The external hostname is output by Terraform:
+output "web_url" {
+  value = kubernetes_service.web.status[0].load_balancer[0].ingress[0].hostname
+}
+
+resource "kubernetes_service" "web" {
+  metadata {
+    name = "web-lb"
+  }
+
+  spec {
+    selector = {
+      app = "web"
+    }
+
+    type = "LoadBalancer" # 🔥 This creates an AWS ELB automatically!
+
+    port {
+      port        = 80
+      target_port = 80
+    }
+  }
+}
+
+Another option would have been to add the AWS Load Balancer Controller, install HELM, Create an Ingress Resource, Exposes your NGINX container on port 80, which will output a public DNS name
