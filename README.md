@@ -133,3 +133,11 @@ terraform-aws-eks-project/
 - **EKS**: [Terraform AWS EKS Module](https://github.com/terraform-aws-modules/terraform-aws-eks)
 - **EC2**: [Terraform AWS EC2 Module](https://github.com/terraform-aws-modules/terraform-aws-ec2)
 - **ALB (Load Balancer)**: [Terraform AWS ALB Module](https://github.com/terraform-aws-modules/terraform-aws-alb)
+
+- git clone https://github.com/yourusername/terraform-eks-project.git
+cd terraform-eks-project
+
+# Update terraform.tfvars for your env (e.g., name = "dev")
+terraform init
+terraform apply
+
